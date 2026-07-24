@@ -40,7 +40,7 @@ speed the published `steeringAngle_rad` is exactly zero.
 
 ```text
 FS-AGH-Racing-DV-Control/
-├── interfaces/dv_interfaces/   ROS messages used by control and simulator
+├── interfaces/dv_interfaces/   local ROS messages used by the controllers
 ├── common/                     shared wheel-load model and tests
 ├── dv_control/
 ├── dv_skidpad_control/
@@ -49,10 +49,8 @@ FS-AGH-Racing-DV-Control/
 ```
 
 `interfaces/dv_interfaces` is a local catkin package containing only the
-messages required by the controllers. No separate `dv_interfaces` repository
-is required. `Control.msg`, `DV_board.msg` and `Imu.msg` are the wire
-interface shared with
-[`FS-AGH-Racing-DV-Simulator`](https://github.com/TymekProstak/FS-AGH-Racing-DV-Simulator).
+messages required by the controllers. No external interface repository is
+required.
 
 ## Requirements
 
@@ -70,90 +68,34 @@ sudo apt update
 sudo apt install python3-catkin-tools libeigen3-dev nlohmann-json3-dev
 ```
 
-## Workspace setup
+## Standalone workspace setup
 
-Clone the Control and Simulator repositories next to each other:
+The complete Control stack, including its ROS messages, is built in its own
+`~/dv_ws` catkin workspace:
 
 ```bash
-mkdir -p ~/agh-racing
-cd ~/agh-racing
-
-git clone https://github.com/TymekProstak/FS-AGH-Racing-DV-Simulator.git
+mkdir -p ~/dv_ws/src
+cd ~/dv_ws/src
 git clone https://github.com/TymekProstak/FS-AGH-Racing-DV-Control.git
-```
-
-The resulting source layout is:
-
-```text
-~/agh-racing/
-├── FS-AGH-Racing-DV-Simulator/
-└── FS-AGH-Racing-DV-Control/
-```
-
-Build the Simulator as a base workspace:
-
-```bash
-mkdir -p ~/dv_sim_ws/src
-ln -s ~/agh-racing/FS-AGH-Racing-DV-Simulator \
-  ~/dv_sim_ws/src/FS-AGH-Racing-DV-Simulator
 
 source /opt/ros/noetic/setup.bash
-cd ~/dv_sim_ws
+cd ~/dv_ws
 catkin init
-rosdep install --from-paths src --ignore-src -r -y
-catkin build lem_simulator
-source devel/setup.bash
-```
-
-Build Control in an overlay workspace:
-
-```bash
-mkdir -p ~/dv_control_ws/src
-ln -s ~/agh-racing/FS-AGH-Racing-DV-Control \
-  ~/dv_control_ws/src/FS-AGH-Racing-DV-Control
-
-source /opt/ros/noetic/setup.bash
-source ~/dv_sim_ws/devel/setup.bash
-cd ~/dv_control_ws
-catkin init
-catkin config --extend ~/dv_sim_ws/devel
 rosdep install --from-paths src --ignore-src -r -y
 catkin build dv_interfaces \
   dv_control dv_skidpad_control dv_acc_launch_control
 source devel/setup.bash
 ```
 
-The two workspaces keep message generation isolated while the Control overlay
-can find `lem_simulator` and its launch files. In every new terminal load the
-overlay before running a controller:
+No Simulator repository, Simulator workspace or catkin overlay is required.
+In every new terminal, load only the Control workspace:
 
 ```bash
-source ~/dv_control_ws/devel/setup.bash
+source /opt/ros/noetic/setup.bash
+source ~/dv_ws/devel/setup.bash
 ```
 
-## Run with the simulator
-
-Each command starts the correct known-centerline Simulator scenario and one
-control application:
-
-```bash
-# Trackdrive on FSG 2019
-roslaunch dv_control simulator_fsg_2019.launch
-
-# Skidpad
-roslaunch dv_skidpad_control simulator_skidpad.launch
-
-# Acceleration
-roslaunch dv_acc_launch_control simulator_acc.launch
-```
-
-Pass a finite simulation time when required:
-
-```bash
-roslaunch dv_control simulator_fsg_2019.launch sim_time:=60
-```
-
-## Run a controller without the simulator
+## Run a controller
 
 ```bash
 roslaunch dv_control control.launch
@@ -167,6 +109,20 @@ A custom acceleration configuration can be selected at launch:
 roslaunch dv_acc_launch_control dv_acc_launch_control.launch \
   config_path:=/absolute/path/to/params.json print_config:=true
 ```
+
+## Optional external simulator
+
+The Simulator is an independent project and is not cloned, built or launched
+by this repository. Combined Control--Simulator launch files are intentionally
+not provided.
+
+To use
+[`FS-AGH-Racing-DV-Simulator`](https://github.com/TymekProstak/FS-AGH-Racing-DV-Simulator),
+build it in its own workspace according to its README. Start the Simulator
+from a terminal sourced for the Simulator workspace and start one controller
+from a separate terminal sourced for `~/dv_ws`. The user is responsible for
+selecting a matching scenario and ensuring that both projects use compatible
+ROS topic names and message definitions.
 
 ## Main parameters
 
@@ -210,15 +166,19 @@ cd docs
 latexmk -pdf controllers_and_allocators.tex
 ```
 
-## Drive data
+## Onboard validation
 
-Store recordings and rosbags outside the Git repository and add only links:
+Store videos, rosbags and large log files outside the Git repository. Replace
+the placeholders below with Markdown links to the validation material.
 
-| Mission | Recording | Rosbag / logs |
-|---|---|---|
-| Trackdrive / autocross | — | — |
-| Skidpad | — | — |
-| Acceleration | — | — |
+| Mission | Onboard video | Rosbag / logs | Conditions and result |
+|---|---|---|---|
+| Trackdrive / autocross | — | — | — |
+| Skidpad | — | — | — |
+| Acceleration / launch | — | — | — |
+| Braking | — | — | — |
+
+General validation notes: —
 
 ## License
 

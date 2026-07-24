@@ -1,9 +1,0 @@
-<launch>
-  <arg name="sim_time" default="-1"/>
-
-  <include file="$(find lem_simulator)/launch/fsg_2019_no_pp.launch">
-    <arg name="sim_time" value="$(arg sim_time)"/>
-  </include>
-
-  <include file="$(find dv_control)/launch/control.launch"/>
-</launch>

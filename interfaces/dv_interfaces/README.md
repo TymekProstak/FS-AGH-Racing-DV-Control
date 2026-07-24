@@ -1,9 +1,9 @@
 # DV interfaces
 
 This package contains the ROS 1 messages required by the control applications.
-It is built together with the repository and does not require a separate
-interface repository.
+It belongs to `FS-AGH-Racing-DV-Control`, is built in the same workspace, and
+does not require an external interface repository.
 
-`Control.msg`, `DV_board.msg`, `Imu.msg` and `Pos.msg` are the shared wire
-interface between `FS-AGH-Racing-DV-Control` and
-`FS-AGH-Racing-DV-Simulator`.
+The Control repository does not import message packages from a simulator.
+External systems can communicate with the controllers only when their ROS
+topics and message definitions are compatible with this local package.
