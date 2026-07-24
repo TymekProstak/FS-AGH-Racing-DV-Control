@@ -170,9 +170,9 @@ latexmk -pdf controllers_and_allocators.tex
 
 | Mission | Onboard video | Conditions and result |
 |---|---|--- |
-| Trackdrive / autocross |  — | N/A |
-| Skidpad | — | 6.2s, ay > 1.1g |
-| Acceleration / launch |  — | 4.4s, vmax > 80km/h|
+| Trackdrive / AutoX |   | N/A |
+| Skidpad | https://drive.google.com/file/d/1kSUpFw8NAw3rzDoF6uLLO0cx1T6Uy2w7/view?usp=sharing | 6.2s, ay > 1.1g |
+| Acceleration |  https://drive.google.com/file/d/1p547sPlzSN0OQeuxp0QXSDRByzm592Uv/view?usp=sharing | 4.4s, vmax > 80km/h|
 
 ## License
 
