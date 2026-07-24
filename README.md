@@ -171,12 +171,11 @@ latexmk -pdf controllers_and_allocators.tex
 Store videos, rosbags and large log files outside the Git repository. Replace
 the placeholders below with Markdown links to the validation material.
 
-| Mission | Onboard video | Rosbag / logs | Conditions and result |
-|---|---|---|---|
-| Trackdrive / autocross | — | — | — |
-| Skidpad | — | — | — |
-| Acceleration / launch | — | — | — |
-| Braking | — | — | — |
+| Mission | Onboard video | Conditions and result |
+|---|---|--- |
+| Trackdrive / autocross |  — | N/A |
+| Skidpad | — | 6.2s, ay > 1.1g |
+| Acceleration / launch |  — | 4.4s, vmax > 80km/h|
 
 General validation notes: —
 
