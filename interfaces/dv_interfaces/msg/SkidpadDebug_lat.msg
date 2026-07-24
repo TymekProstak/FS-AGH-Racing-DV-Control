@@ -1,0 +1,34 @@
+float64 ey_m
+float64 epsi_rad
+
+float64 curr_steer_rad
+float64 ref_steer_rad
+float64 steer_error_rad
+
+float64 curr_yaw_rate_radps
+float64 ref_yaw_rate_radps
+float64 yaw_rate_error_radps
+
+float64 curr_vy_mps
+float64 ref_vy_mps
+float64 vy_error_mps
+
+float64 torque_allocator_global_scale
+float64 torque_allocator_hard_limit_scale
+float64 torque_allocator_rate_scale
+float64 torque_allocator_rate_scale_min
+float64 torque_allocator_rate_scale_max
+
+float64 torque_allocator_total_after_tv_Nm
+float64 torque_allocator_total_limited_Nm
+float64 torque_allocator_previous_total_limited_Nm
+
+bool torque_allocator_rate_limited
+bool torque_allocator_rate_forced_over_hard_limit
+bool torque_allocator_rate_bypass
+
+bool optimized_torque_vectoring_used
+bool jaca_torque_vectoring_used
+float64 tv_yaw_moment_Nm
+float64 tv_yaw_moment_raw_Nm
+float64 tv_torque_diff_Nm

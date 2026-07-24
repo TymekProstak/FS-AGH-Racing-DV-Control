@@ -1,0 +1,10 @@
+bool cube_mars_initialization_finished
+bool has_received_first_dv_board_message
+bool has_valid_path_from_pp
+bool ready_to_start_drive
+bool has_odometry_message
+bool has_received_imu_message
+
+string phase
+
+bool as_finished

@@ -1,0 +1,8 @@
+std_msgs/Header header
+int32 cube_mars_initialization_finished
+int32 has_received_first_dv_board_message
+int32 has_valid_path_from_pp
+int32 ready_to_start_launch
+int32 has_odometry_message
+int32 has_received_imu_message
+int32 as_finished

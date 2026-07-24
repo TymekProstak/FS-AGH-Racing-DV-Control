@@ -1,0 +1,12 @@
+<launch>
+  <arg name="sim_time" default="-1"/>
+
+  <include file="$(find lem_simulator)/launch/skidpad_no_pp.launch">
+    <arg name="sim_time" value="$(arg sim_time)"/>
+  </include>
+
+  <param name="/centerline_publisher/append_first_point_if_closed"
+         value="true"/>
+
+  <include file="$(find dv_skidpad_control)/launch/skidpad_control.launch"/>
+</launch>

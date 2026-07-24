@@ -1,0 +1,12 @@
+launch_map_info
+S_total_m: 25
+mu_x: 0.9
+launch_final_t_s: 2.667298259
+launch_final_s_m: 25
+launch_final_vx_mps: 19.224896
+initial_phase_end_t_s: 0.495
+initial_phase_end_s_m: 0.5013103758
+initial_phase_end_vx_mps: 2.686630373
+initial_phase_end_ax_mps2: 8.08222819
+initial_phase_end_reason: initial_ax_ramp_knee
+ax_peak_mps2: 8.264050517

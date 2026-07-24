@@ -1,0 +1,198 @@
+{
+  "general": {
+    "v_ref": 4.5,
+
+    "brake_start_distance_before_end_m": 25.0,
+    "coast_below_speed_mps": 0.75,
+    "finished_encoder_speed_mps": 0.2,
+
+    "general_use_jaca_torque_vectoring": false,
+    "general_use_torque_vectoring": true,
+
+    "brake_gain": 1.15,
+
+    "use_emergency_check": false,
+    "use_cube_mars_encoder_check": true,
+    "use_cube_mars_following_check": true,
+    "use_path_planner_check": true,
+    "use_dynamic_state_check": true,
+    "use_ins_pose_check": true,
+    "use_ins_stability_check": true,
+    "use_ins_sliding_velocity_check": true,
+
+    "use_friction_elipse_limiter": false,
+    "mu_x_friction_limit": 1.0,
+    "mu_y_friction_limit": 1.35,
+
+    "assume_dv_qp_torque_allocation": true,
+    "assume_dv_axle_torque_allocation": false,
+    "assume_jaca_torque_allocation": false,
+
+    "jaca_front_torque_fraction_drive": 0.4,
+    "jaca_front_torque_fraction_brake": 0.7,
+    "torque_allocation_lambda_factor": 0.075,
+    "torque_allocation_fx_ref": 1000.0,
+    "torque_allocation_mz_ref": 10.0,
+
+    "use_segmented_velocity_profile": true,
+
+    "v_ref_segmented_right_down_mps": 5.0,
+    "v_ref_segmented_right_up_mps": 9.75,
+    "v_ref_segmented_left_down_mps": 5.7,
+    "v_ref_segmented_left_up_mps": 10.25,
+
+    "segment_alpha1_deg": 120.0,
+    "segment_alpha2_deg": 45.0,
+    "segment_alpha3_deg": 37.5,
+    "segment_alpha4_deg": 179.0,
+
+    "segment_ref_ramped": true,
+
+    "print_console_debug_info": false
+  },
+
+  "model": {
+    "body": {
+      "m": 228.0,
+      "g": 9.81,
+      "Iz": 137.5,
+
+      "C_l_f": 37228.2,
+      "C_l_r": 48372.6,
+
+      "l_f": 0.912967105,
+      "l_r": 0.617032895,
+
+      "h_cg": 0.3,
+      "track_width": 1.2,
+      "h1_roll": 0.08,
+      "h2_roll": 0.11,
+      "lambda_phi_elastic_lateral": 0.4794651384909265,
+
+      "Cf": 1.5,
+      "Df": 1.4825,
+      "Bf": 18.559,
+
+      "Cr": 1.5,
+      "Dr": 1.4344,
+      "Br": 16.8447,
+
+      "Cd": 1.225,
+      "rolling_resistance_coeff": 0.035,
+
+      "use_aero": true,
+      "Cl1": 0.0406,
+      "Cl2": 0.061
+    },
+
+    "mass_transfer": {
+      "tau_load_s": 0.05,
+      "minimum_wheel_load_N": 50.0
+    },
+
+    "tire": {
+      "R_tire": 0.195
+    },
+
+    "steering_system": {
+      "steer_natural_freq": 24.3,
+      "steer_damping": 1.19
+    },
+
+    "torque_vectoring_jaca": {
+      "p_tv_gain": 0.5,
+      "speed_bled_low": 5.0,
+      "speed_bled_high": 10.0,
+      "turn_radius_speed_gain": 0.001,
+      "over_steer_gain": 0.0,
+      "transition_gain": 1.25,
+      "jaca_magic_number": 0.0098,
+      "track_width": 1.2,
+      "low_speed_gain": 0.5
+    },
+
+    "torque_vectoring": {
+      "max_torque_diff_Nm_engine": 5.0
+    },
+
+    "resistance": {
+      "use_drag": true,
+      "Cd": 1.225,
+
+      "use_rolling_resistance": true,
+      "Crr": 0.035,
+
+      "use_aero": true,
+      "Cl1": 0.0406,
+      "Cl2": 0.061,
+
+      "extra_constant_N": 4.7528,
+      "extra_linear_N_per_mps": 0.02843
+    },
+
+    "drivetrain": {
+      "M_wheel_drive_max_Nm": 1062.52,
+      "P_wheel_drive_max_W": 80000.0,
+      "use_drive_power_limit": true,
+
+      "M_wheel_brake_max_Nm": 1062.52,
+      "P_wheel_brake_max_W": 13000.0,
+      "use_brake_power_limit": true,
+
+      "motor_torque_time_constant": 0.03,
+      "R_tire": 0.195,
+      "gear_ratio": 11.91176,
+
+      "M_dot_up": 5.0,
+      "M_dot_down": 5.0,
+
+      "M_engine_max_Nm_usage_drive_total": 60.0,
+      "M_engine_max_Nm_usage_brake_total": 40.0,
+
+      "wheel_max_torque_engine_drive_Nm": 15.0,
+      "wheel_max_torque_engine_brake_Nm": 10.0
+    },
+
+    "ltv_mpc_unbounded": {
+    "N": 70,
+      "Q_psi": 3.75,
+      "Q_ey": 3.5,
+      "Q_vy": 0.0,
+      "Q_r": 0.0,
+      "R_d_delta": 0.1,
+      "R_tv_yaw_moment": 5e-07, 
+      "R_d_tv_yaw_moment": 7.5e-07,
+      "v_min": 3.0,
+      "hessian_regularization": 1e-12,
+      "terminal_scale": 1.0
+    },
+
+    "steering_limit": {
+      "max_steer": 0.38,
+      "max_steer_rate": 4.0
+    },
+
+    "frequency": {
+      "steer_cmd_loop_hz": 30.0,
+      "steer_read_loop_hz": 100.0,
+      "torque_loop_hz": 40.0,
+      "imu_hz": 100.0
+    }
+  },
+
+  "speed_pid": {
+    "Kp": 45.0,
+    "Ki": 0.0,
+    "Kd": 0.0,
+
+    "saturation_lower_Nm": -120.0,
+    "saturation_upper_Nm": 150.0,
+
+    "anti_windup_gain": 0.0,
+    "leak_time_scale": 0.5,
+
+    "use_output_rate_limit": true,
+    "output_rate_up": 300.0,
+    "output_rate_down": 500.0
+  }
+}

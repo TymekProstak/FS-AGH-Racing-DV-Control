@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="dv_skidpad_control"
+          type="dv_skidpad_control_node"
+          name="dv_skidpad_control_node"
+          output="screen" />
+</launch>

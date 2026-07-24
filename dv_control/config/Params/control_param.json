@@ -1,0 +1,134 @@
+{
+  "general": {
+    "v_ref": 3.5,
+    "smoothing_factor_of_pp_result": 0.75,
+    "bf_spatial_step": 0.1,
+    "v_min": 1.0,
+    "v_max": 12.0,
+    "ax_max": 5.25,
+    "ay_max": 4.25,
+    "minimal_planer_forward_time": 1.5,
+    "final_to_short_bf_speed": 4.0,
+    "speed_under_coast_threshold": 0.75,
+    "speed_under_finished_threshold": 0.25,
+    "general_use_jaca_torque_vectoring": 0.0,
+    "general_use_torque_vectoring": 1.0,
+    "use_emergency_check": 1.0,
+    "print_console_debug_info": 1.0,
+    "stop_after_lap_count": 11.0,
+    "use_slowing_down_heuristic": false,
+    "use_friction_elipse_limiter": false,
+    "mu_x_friction_limit": 1.15,
+    "mu_y_friction_limit": 1.4
+  },
+  "model": {
+    "frequency": {
+      "steer_cmd_loop_hz": 30.0
+    },
+    "body": {
+      "m": 228.0,
+      "g": 9.81,
+      "Iz": 137.5,
+      "l_f": 0.912967105,
+      "l_r": 0.617032895,
+      "C_l_f": 37228.2,
+      "C_l_r": 48372.6,
+      "Cf": 1.5,
+      "Df": 1.4825,
+      "Bf": 18.559,
+      "Cr": 1.5,
+      "Dr": 1.4344,
+      "Br": 16.8447,
+      "Cd": 0.625,
+      "rolling_resistance_coeff": 0.035,
+      "resistance_constant_N": 4.7528,
+      "resistance_linear_N_per_mps": 0.02843,
+      "wheel_rot_inertia_kgm2": 0.12,
+      "num_rotating_wheels": 4.0,
+      "h_cg": 0.3,
+      "use_aero": false,
+      "Cl1": 0.71,
+      "Cl2": 1.0797,
+      "track_width": 1.2,
+      "h1_roll": 0.08,
+      "h2_roll": 0.11,
+      "lambda_phi_elastic_lateral": 0.4794651384909265
+    },
+    "mass_transfer": {
+      "tau_load_s": 0.05,
+      "minimum_wheel_load_N": 50.0
+    },
+    "tire": {
+      "R_tire": 0.195
+    },
+    "drivetrain": {
+      "M_wheel_drive_max_Nm": 1062.52,
+      "P_wheel_drive_max_W": 80000.0,
+      "use_drive_power_limit": true,
+      "M_wheel_brake_max_Nm": 1062.52,
+      "P_wheel_brake_max_W": 13000.0,
+      "use_brake_power_limit": true,
+      "gear_ratio": 11.91176,
+      "M_dot_up": 12.5,
+      "M_dot_down": 12.5,
+      "M_engine_max_Nm_usage_drive_total": 60.0,
+      "M_engine_max_Nm_usage_brake_total": 40.0,
+      "wheel_max_torque_engine_drive_Nm": 15.0,
+      "wheel_max_torque_engine_brake_Nm": 10.0
+    },
+    "torque_vectoring_jaca": {
+      "p_tv_gain": 0.5,
+      "speed_bled_low": 5.0,
+      "speed_bled_high": 10.0,
+      "turn_radius_speed_gain": 0.001,
+      "over_steer_gain": 0.0,
+      "transition_gain": 1.25,
+      "jaca_magic_number": 9.8,
+      "track_width": 1.2,
+      "low_speed_gain": 0.5
+    },
+    "torque_vectoring": {
+      "max_torque_diff_Nm_engine": 6.5
+    },
+    "steering_limit": {
+      "max_steer": 0.38,
+      "max_steer_rate": 4.0
+    },
+    "steering_system": {
+      "steer_natural_freq": 24.3,
+      "steer_damping": 1.19
+    },
+    "ltv_mpc_unbounded": {
+      "N": 45,
+      "Q_psi": 3.5,
+      "Q_ey": 3.0,
+      "Q_vy": 0.0,
+      "Q_r": 0.0,
+      "R_d_delta": 0.1,
+      "R_tv_yaw_moment": 5e-08,
+      "R_d_tv_yaw_moment": 5e-08,
+      "v_min": 1.5,
+      "hessian_regularization": 1e-12,
+      "terminal_scale": 1.0
+    }
+  },
+  "speed_pid": {
+    "Kp": 45.0,
+    "Ki": 0.0,
+    "Kd": 0.0,
+    "saturation_lower_Nm": -160.0,
+    "saturation_upper_Nm": 230.0,
+    "anti_windup_gain": 0.0,
+    "leak_time_scale": 0.5,
+    "use_output_rate_limit": true,
+    "output_rate_up": 1000.0,
+    "output_rate_down": 600.0
+  },
+  "slowing_down_heuristic": {
+    "ey_drive_start_m": 0.3,
+    "ey_drive_zero_m": 0.8,
+    "ey_brake_start_m": 0.45,
+    "ey_brake_full_m": 1.2,
+    "max_recovery_deceleration_mps2": 2.0
+  }
+}

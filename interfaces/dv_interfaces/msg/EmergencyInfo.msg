@@ -1,0 +1,143 @@
+std_msgs/Header header
+
+uint8 COMPETITION_ACCELERATION=0
+uint8 COMPETITION_SKIDPAD=1
+uint8 COMPETITION_AUTOCROSS=2
+
+uint8 competition_type
+
+bool emergency_current
+bool emergency_latched
+bool is_hard
+
+string emergency_reason_current
+string emergency_reason_latched
+
+bool is_car_driving
+bool emergency_check_enabled
+
+uint32 error_mask
+
+uint32 ERROR_NONE=0
+uint32 ERROR_CUBEMARS_ENCODER_TIMEOUT=1
+uint32 ERROR_CUBEMARS_TRACKING=2
+uint32 ERROR_DYNAMIC_EY=4
+uint32 ERROR_DYNAMIC_EPSI=8
+uint32 ERROR_DYNAMIC_BETA=16
+uint32 ERROR_DYNAMIC_YAW_RATE=32
+uint32 ERROR_INS_TIMEOUT=64
+uint32 ERROR_INS_POSE_NOT_CHANGING=128
+uint32 ERROR_INS_POSE_UNSTABLE=256
+uint32 ERROR_INS_VELOCITY_UNSTABLE=512
+uint32 ERROR_INS_SLIDING=1024
+uint32 ERROR_PATH_SPLINE_INVALID=2048
+uint32 ERROR_PATH_TIMEOUT=4096
+uint32 ERROR_PATH_TOO_SHORT=8192
+uint32 ERROR_PATH_BEFORE_FIRST=16384
+uint32 ERROR_PATH_AFTER_LAST=32768
+uint32 ERROR_PATH_IN_BREAK=65536
+
+bool use_cube_mars_encoder_check
+bool use_cube_mars_following_check
+
+bool cube_mars_emergency
+bool cube_mars_initialized
+
+bool cube_mars_encoder_stopped_sending
+bool cube_mars_reference_tracking_error_too_high
+
+float64 cube_mars_time_since_last_encoder_update_s
+float64 cube_mars_encoder_position_rad
+float64 cube_mars_encoder_reference_position_rad
+float64 cube_mars_encoder_position_change_rad
+
+float64 cube_mars_reference_tracking_error_abs_rad
+float64 cube_mars_reference_tracking_error_avg_rad
+
+float64 cube_mars_no_message_threshold_s
+float64 cube_mars_tracking_error_threshold_rad
+
+bool use_dynamic_state_check
+
+bool dynamic_state_emergency
+bool dynamic_state_initialized
+
+bool dynamic_ey_over_limit
+bool dynamic_epsi_over_limit
+bool dynamic_beta_over_limit
+bool dynamic_yaw_rate_over_limit
+
+float64 dynamic_vx_mps
+float64 dynamic_vy_mps
+float64 dynamic_ey_m
+float64 dynamic_epsi_rad
+float64 dynamic_beta_rad
+float64 dynamic_yaw_rate_radps
+
+float64 dynamic_ey_limit_m
+float64 dynamic_epsi_limit_rad
+float64 dynamic_beta_limit_rad
+float64 dynamic_yaw_rate_limit_radps
+
+bool use_ins_pose_check
+bool use_ins_stability_check
+bool use_ins_sliding_velocity_check
+
+bool ins_emergency
+bool ins_initialized
+
+bool ins_stopped_sending
+bool ins_pose_is_changing
+bool ins_pose_is_stable
+bool ins_velocity_is_stable
+bool ins_velocity_sliding
+
+bool ins_speed_over_1mps
+bool ins_speed_over_2_5mps
+
+float64 ins_time_since_last_update_s
+
+float64 ins_curr_x_m
+float64 ins_curr_y_m
+float64 ins_prev_x_m
+float64 ins_prev_y_m
+
+float64 ins_position_change_m
+float64 ins_velocity_change_mps
+
+float64 ins_vx_body_mps
+float64 ins_vy_body_mps
+float64 ins_vx_other_mps
+float64 ins_yaw_rate_radps
+
+float64 ins_no_message_threshold_s
+float64 ins_pose_changing_threshold_m
+float64 ins_pose_stability_threshold_m
+float64 ins_velocity_stability_threshold_mps
+float64 ins_sliding_min_speed_mps
+float64 ins_sliding_lateral_to_longitudinal_ratio
+float64 ins_sliding_max_yaw_rate_radps
+
+bool use_path_planner_check
+
+bool path_planner_emergency
+bool path_planner_initialized
+
+bool path_is_track_closed
+bool path_spline_is_valid
+bool path_planner_is_valid
+bool path_planner_stopped_sending
+
+bool path_bolide_before_first_point
+bool path_bolide_after_last_point
+bool path_bolide_in_break_between_last_and_first
+bool path_safe_because_track_closed
+
+float64 path_time_since_last_update_s
+uint32 path_size
+
+float64 path_bolide_x_m
+float64 path_bolide_y_m
+
+float64 path_no_message_threshold_s
+float64 path_max_dist_to_break_m
