@@ -34,6 +34,7 @@
 #include <dv_interfaces/Control.h>
 #include <dv_interfaces/Imu.h>
 #include <dv_interfaces/OdomDebug.h>
+#include <dv_interfaces/Path.h>
 #include <dv_interfaces/ControlDebug_long.h>
 #include <dv_interfaces/ControlDebug_lat.h>
 #include <dv_interfaces/Controlhandling_info.h>
@@ -225,7 +226,7 @@ public:
 
     Controller(ros::NodeHandle& nh, const ParamBank& param);
 
-    void pathCallback(const geometry_msgs::PoseArray& msg);
+    void pathCallback(const dv_interfaces::Path& msg);
     void poseCallback(const nav_msgs::Odometry& msg);
 
     void dvBoardCallback(const dv_interfaces::DV_board::ConstPtr& msg);

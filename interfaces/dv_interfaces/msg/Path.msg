@@ -1,0 +1,3 @@
+geometry_msgs/PoseArray path
+string control_mode
+bool is_track_closed

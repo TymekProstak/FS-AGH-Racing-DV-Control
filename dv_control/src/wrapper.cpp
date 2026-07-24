@@ -1619,17 +1619,13 @@ void Controller::emergencyCheckTimerCallback(
 //                              PATH CALLBACK
 // =============================================================================
 
-void Controller::pathCallback(const geometry_msgs::PoseArray& msg)
+void Controller::pathCallback(const dv_interfaces::Path& msg)
 {
     const auto& path =
-        msg.poses;
+        msg.path.poses;
 
     const bool is_closed =
-        path.size() >= 3 &&
-        std::hypot(
-            path.front().position.x - path.back().position.x,
-            path.front().position.y - path.back().position.y
-        ) <= 1.0e-3;
+        msg.is_track_closed;
 
     /*
         Rebuild smoothing and spline only when the actual path geometry or the

@@ -21,6 +21,7 @@ add_message_files(
     EmergencyInfo.msg
     Imu.msg
     OdomDebug.msg
+    Path.msg
     Pos.msg
     SkidpadDebug_lat.msg
     SkidpadDebug_long.msg
